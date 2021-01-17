@@ -1,0 +1,37 @@
+server:
+  port: ${SERVER_PORT:9000}
+  
+spring:
+  application:
+    name: PROJECT-NAME
+  datasource:  
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_USERNAME}
+    driver-class-name: ${DRIVER_CLASS_NAME:com.mysql.cj.jdbc.Driver}
+    sql-script-encoding: UTF-8
+  jpa:
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: true
+  main.allow-bean-definition-overriding: true
+  jackson:
+   default-property-inclusion: NON_NULL
+   
+   
+---
+
+
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_springboot?useTimezone=true&serverTimezone=UTC
+    username: root
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: true
+
